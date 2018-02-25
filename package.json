@@ -8,6 +8,7 @@
   "main": "bot.js",
   "author": "Taffy",
   "dependencies": {
+    "deck-of-cards": "^0.1.8",
     "discord.io": "github:woor/discord.io#gateway_v6",
     "winston": "^2.4.0"
   }
