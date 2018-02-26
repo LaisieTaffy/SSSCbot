@@ -17,6 +17,29 @@ bot.on('ready', function (evt) {
     logger.info('Logged in as: ');
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
+
+var emoteList = [
+				'./emotes/emote1.png',
+				'./emotes/emote2.png',
+				'./emotes/emote3.png',
+				'./emotes/emote4.png',
+				'./emotes/emote5.png',
+				'./emotes/emote6.png',
+				'./emotes/emote7.png',
+				'./emotes/emote8.png',
+				'./emotes/emote9.png',
+				'./emotes/emote10.png',
+				'./emotes/emote11.png',
+				'./emotes/emote12.png',
+				'./emotes/emote13.png',
+				'./emotes/emote14.png',
+				'./emotes/emote15.png',
+				'./emotes/emote16.png',
+				'./emotes/emote17.png',
+				'./emotes/emote18.png',
+				'./emotes/emote19.png',
+				];
+
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with '.'
@@ -36,13 +59,18 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
             
             case 'random':
-            	var num = Math.floor(Math.random() * 19 + 1);
+            	var num = Math.floor(Math.random() * emoteList.length + 1);
+            	var em = emoteList[num];
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
             	var emote = e;
             	bot.sendMessage({
             		to: channelID,
             		message: emote
             	});
+            	bot.sendFile({
+            		to: channelID,
+            		message: em
+            	})
             break;
          }
      }
