@@ -40,7 +40,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
             	bot.sendMessage({
             		to: channelID,
-            		message: 'e'
+            		message: e + num
             	});
             break;
          }
