@@ -78,7 +78,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		i++;
             	}
             	bot.setPresence({
-            		name: game
+            		game:{
+            			name: game
+            			}
             	});
             	bot.sendMessage({
             		to: channelID,
