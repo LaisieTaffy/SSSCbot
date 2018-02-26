@@ -72,6 +72,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             
             case 'playing':
             	var game = args;
+            	bot.sendMessage({
+            		to: channelID,
+            		message: game
+            	});
             	bot.setPresence({
             		name: game
             	});
