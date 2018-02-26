@@ -38,9 +38,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'random':
             	var num = Math.floor(Math.random * 20);
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
+            	var emote = e;
             	bot.sendMessage({
             		to: channelID,
-            		message: e + num
+            		message: emote + num
             	});
             break;
          }
