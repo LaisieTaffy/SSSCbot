@@ -34,6 +34,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 });
             break;
             // Just add any case commands if you want to..
+            
+            case 'random':
+            	bot.sendMessage({
+            		to: channelID,
+            		message: https://github.com/LaisieTaffy/SSSCbot/blob/master/emotes/emote1.png
+            		});
+            break;
          }
      }
 });
