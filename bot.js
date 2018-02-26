@@ -73,7 +73,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'playing':
             	var i = 0;
             	var game ="";
-            	while(i < args.length()){
+            	while(i < args.length){
             		game += args[i];
             		i++;
             	}
