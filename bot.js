@@ -63,11 +63,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var em = emoteList[num];
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
             	var emote = e;
-            	message.channel.send(new Discord.Attachment(em) )
-                .then(msg => {
-                    'mfw'// do something after message sends, if you want
-                })
-                .catch(console.error);
+            	bot.uploadFile({
+            		to: channelID,
+            		file: emote,
+            		message: 'mfw'
+            	});
             break;
          }
      }
