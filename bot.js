@@ -70,7 +70,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	bot.sendFile({
             		to: channelID,
             		message: em
-            	})
+            	});
             break;
          }
      }
