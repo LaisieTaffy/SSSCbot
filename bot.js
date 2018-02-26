@@ -71,7 +71,12 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'playing':
-            	var game = args;
+            	var i = 0;
+            	var game;
+            	while(i < args.length()){
+            		game += args[i];
+            		i++;
+            	}
             	bot.sendMessage({
             		to: channelID,
             		message: game
