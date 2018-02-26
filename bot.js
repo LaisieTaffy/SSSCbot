@@ -37,7 +37,7 @@ var emoteList = [
 				'./emotes/emote16.png',
 				'./emotes/emote17.png',
 				'./emotes/emote18.png',
-				'./emotes/emote19.png',
+				'./emotes/emote19.png'
 				];
 
 bot.on('message', function (user, userID, channelID, message, evt) {
@@ -65,7 +65,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var emote = e;
             	bot.sendMessage({
             		to: channelID,
-            		message: emote
+            		message: emote + emoteList.length
             	});
             	bot.sendFile({
             		to: channelID,
