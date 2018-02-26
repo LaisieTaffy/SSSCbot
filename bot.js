@@ -74,15 +74,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var i = 0;
             	var game ="";
             	while(i < args.length){
-            		game += args[i];
+            		game += args[i] + " ";
             		i++;
             	}
+            	bot.setPresence({
+            		name: game
+            	});
             	bot.sendMessage({
             		to: channelID,
             		message: game
-            	});
-            	bot.setPresence({
-            		name: game
             	});
             break;
          }
