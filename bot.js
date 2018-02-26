@@ -65,7 +65,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var emote = e;
             	bot.uploadFile({
             		to: channelID,
-            		file: emote,
+            		file: em,
             		message: 'mfw'
             	});
             break;
