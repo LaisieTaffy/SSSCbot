@@ -26,8 +26,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
        
         args = args.splice(1);
         switch(cmd) {
-            // !ping
-            case 'ping':
+            // .pingg
+            case 'pingg':
                 bot.sendMessage({
                     to: channelID,
                     message: 'Pong!'
@@ -38,7 +38,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'random':
             	bot.sendMessage({
             		to: channelID,
-            		message: 'https://github.com/LaisieTaffy/SSSCbot/blob/master/emotes/emote1.png'
+            		message: 'https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote1.png'
             	});
             break;
          }
