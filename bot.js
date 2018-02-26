@@ -58,7 +58,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             // Just add any case commands if you want to..
             
-            case 'random':
+            case 'mfw':
             	var num = Math.floor(Math.random() * emoteList.length + 1);
             	var em = emoteList[num];
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
