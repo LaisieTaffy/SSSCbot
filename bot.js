@@ -63,9 +63,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	var em = emoteList[num];
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
             	var emote = e;
-            	bot.sendMessage({
+            	
+            	bot.sendFile({
             		to: channelID,
-            		message: emote + emoteList.length
+            		message: emote
             	});
             break;
          }
