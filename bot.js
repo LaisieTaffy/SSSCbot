@@ -67,10 +67,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		to: channelID,
             		message: emote + emoteList.length
             	});
-            	bot.sendFile({
-            		to: channelID,
-            		message: em
-            	});
             break;
          }
      }
