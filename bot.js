@@ -36,7 +36,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             // Just add any case commands if you want to..
             
             case 'random':
-            	var num = Math.floor(Math.random() * 20);
+            	var num = Math.floor(Math.random() * 19 + 1);
             	var e = "https://raw.githubusercontent.com/LaisieTaffy/SSSCbot/master/emotes/emote" + num + ".png";
             	var emote = e;
             	bot.sendMessage({
