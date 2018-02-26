@@ -69,6 +69,13 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		message: 'mfw'
             	});
             break;
+            
+            case 'playing':
+            	var game = args;
+            	bot.setPresence({
+            		name: game
+            	});
+            break;
          }
      }
 });
