@@ -1,7 +1,9 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
-var fs = require('fs');
+var fs = require('fs'),
+	path = require('path');
+var spawn = require('child_process').spawn;
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -55,6 +57,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with '.'
     var serverID = bot.channels[channelID].guild_id;
+    var vcID = bot.servers[serverID].members[userID].voice_channel_id;
     if (message.substring(0, 1) == '.') {
         var args = message.substring(1).split(' ');
         var cmd = args[0];
@@ -96,15 +99,26 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	});
             	bot.sendMessage({
             		to: channelID,
-            		message: game
+            		message: 'Playing ' + game
             	});
             break;
             
             case 'tata':
-            	var vcID = bot.servers[serverID].members[userID].voice_channel_id;
-            	bot.joinVoiceChannel(vcID, function(){
-            		playAudio(vcID, './audio/tata.mp3');
+            	var a = Math.floor(Math.random() * 16);
+            	var i = 0;
+            	var tat = "";
+            	while (i < a){
+            		tat += 'A';
+            		i++;
+            	}
+            	bot.sendMessage({
+            		to: channelID,
+            		message: 'TAT' + a
             	});
+            break;
+            
+            case 'dc':
+            	bot.leaveVoiceChannel(vcID);
             break;
             				
          }
