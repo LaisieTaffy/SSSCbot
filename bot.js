@@ -123,11 +123,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		to: channelID,
             		message: 'TAT' + tat
             	});
-            	bot.uploadFile({
-            		to: channelID,
-            		file: audio,
-            		message: 'audio'
-            	});
             break;
             
             case 'dc':
