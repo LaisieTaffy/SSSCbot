@@ -43,6 +43,10 @@ var emoteList = [
 				'./emotes/emote19.png'
 				];
 
+var audioList = [
+				'./audio/tata.mp3'
+				];
+
 function playAudio(channel, file) {
     bot.getAudioContext(
             channel, function(error, stream) {
@@ -104,8 +108,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'tata':
+            	var audio = audioList[0];
             	bot.joinVoiceChannel(vcID, function(){
-            		playAudio(vcID, './audio/tata.mp3');
+            		playAudio(vcID, audio);
             	});
             	var a = Math.floor(Math.random() * 15 + 1);
             	var i = 0;
@@ -118,10 +123,17 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		to: channelID,
             		message: 'TAT' + tat
             	});
+            	bot.uploadFile({
+            		to: channelID,
+            		file: audio,
+            		message: 'audio'
+            	});
             break;
             
             case 'dc':
-            	bot.leaveVoiceChannel(vcID);
+            	function() {
+            		bot.leaveVoiceChannel(channel);
+        		}
             break;
             				
          }
