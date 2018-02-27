@@ -104,7 +104,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'tata':
-            	var a = Math.floor(Math.random() * 16);
+            	var a = Math.floor(Math.random() * 15 + 1);
             	var i = 0;
             	var tat = "";
             	while (i < a){
@@ -113,7 +113,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	}
             	bot.sendMessage({
             		to: channelID,
-            		message: 'TAT' + a
+            		message: 'TAT' + tat
             	});
             break;
             
