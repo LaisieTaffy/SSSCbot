@@ -50,9 +50,17 @@ var audioList = [
 function playAudio(channel, file) {
     bot.getAudioContext(channel, function(error, stream) {
     	if (error) return console.error(err);    
-        stream.playAudioFile(file);
+        fs.createReadStream(file).pipe(stream, {end: false});
         stream.on('done', function() {
-            bot.leaveVoiceChannel(channel);
+            bot.leaveVoiceChannel((channel, function(error, events) {
+                //Check to see if any errors happen while leaving.
+            		if (error){
+                		bot.sendMessage({                        
+                        	to: channelID,
+                        	message: 'I am not in a voice channel!'    
+                    	})
+                	}
+            	});
         });
     });
 }
@@ -126,7 +134,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'dc':
-            	bot.leaveVoiceChannel(vcID);
+            	bot.leaveVoiceChannel((vcID, function(error, events) {
+                //Check to see if any errors happen while leaving.
+            		if (error){
+                		bot.sendMessage({                        
+                        	to: channelID,
+                        	message: 'I am not in a voice channel!'    
+                    	})
+                	}
+            	});
             break;
             				
          }
