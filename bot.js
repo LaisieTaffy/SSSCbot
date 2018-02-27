@@ -62,7 +62,7 @@ function playAudio(channel, file) {
                 	}
             });
         });
-    });
+    })	;
 }
 
 bot.on('message', function (user, userID, channelID, message, evt) {
