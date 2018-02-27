@@ -52,7 +52,7 @@ function playAudio(channel, file) {
     	if (error) return console.error(err);    
         fs.createReadStream(file).pipe(stream, {end: false});
         stream.on('done', function() {
-            bot.leaveVoiceChannel((channel, function(error, events) {
+            bot.leaveVoiceChannel(channel, function(error, events) {
                 //Check to see if any errors happen while leaving.
             		if (error){
                 		bot.sendMessage({                        
@@ -60,7 +60,7 @@ function playAudio(channel, file) {
                         	message: 'I am not in a voice channel!'    
                     	})
                 	}
-            	});
+            });
         });
     });
 }
@@ -134,7 +134,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'dc':
-            	bot.leaveVoiceChannel((vcID, function(error, events) {
+            	bot.leaveVoiceChannel(vcID, function(error, events) {
                 //Check to see if any errors happen while leaving.
             		if (error){
                 		bot.sendMessage({                        
