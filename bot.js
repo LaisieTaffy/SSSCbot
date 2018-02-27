@@ -48,7 +48,8 @@ var audioList = [
 				];
 
 function playAudio(channel, file) {
-    bot.getAudioContext(channel, function(error, stream) {  
+    bot.getAudioContext(channel, function(error, stream) {
+    	if (error) return console.error(error);  
         fs.createReadStream(file).pipe(stream, {end: false});
         stream.on('done', function() {
             bot.leaveVoiceChannel(channel, function(error, events) {
