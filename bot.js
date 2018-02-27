@@ -131,9 +131,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'dc':
-            	function() {
-            		bot.leaveVoiceChannel(channel);
-        		}
+            	bot.leaveVoiceChannel(vcID);
             break;
             				
          }
