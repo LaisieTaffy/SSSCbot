@@ -1,6 +1,7 @@
 var Discord = require('discord.io');
 var logger = require('winston');
 var auth = require('./auth.json');
+var fs = require('fs');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -39,6 +40,16 @@ var emoteList = [
 				'./emotes/emote18.png',
 				'./emotes/emote19.png'
 				];
+
+function playAudio(channel, file) {
+    bot.getAudioContext(
+            channel, function(error, stream) {
+        fs.createReadStream(file).pipe(stream, {end: false});
+        stream.on('done', function() {
+            bot.leaveVoiceChannel(channel);
+        });
+    });
+}
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -87,6 +98,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             		message: game
             	});
             break;
+            
+            case 'tata':
+            	var vcID= userID.voice_channel_id;
+            	bot.joinVoiceChannel(vcID, function(){
+            		playAudio(vcID, './audio/tata.mp3');
+            	});
+            break;
+            				
          }
      }
 });
