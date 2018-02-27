@@ -104,6 +104,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'tata':
+            	bot.joinVoiceChannel(vcID, function(){
+            		playAudio(vcID, './audio/tata.mp3');
+            	});
             	var a = Math.floor(Math.random() * 15 + 1);
             	var i = 0;
             	var tat = "";
