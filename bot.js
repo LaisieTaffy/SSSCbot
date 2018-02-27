@@ -64,7 +64,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'pingg':
                 bot.sendMessage({
                     to: channelID,
-                    message: 'Pong!'
+                    message: 'Pong! ' + bot.servers[serverID].members[userID].voice_channel_id
                 });
             break;
             // Just add any case commands if you want to..
@@ -100,7 +100,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             break;
             
             case 'tata':
-            	var vcID= userID.voice_channel_id;
+            	var vcID = userID.voice_channel_id;
             	bot.joinVoiceChannel(vcID, function(){
             		playAudio(vcID, './audio/tata.mp3');
             	});
