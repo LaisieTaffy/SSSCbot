@@ -4,6 +4,7 @@ var auth = require('./auth.json');
 var fs = require('fs'),
 	path = require('path');
 var spawn = require('child_process').spawn;
+var ffmpeg = require('ffmpeg');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
