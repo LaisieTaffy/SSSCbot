@@ -145,6 +145,22 @@ bot.on('message', function (user, userID, channelID, message, evt) {
                 	}
             	});
             break;
+            
+            case 'join:
+            	client.joinVoiceChannel(VCID, function(err, events) {
+        		if (err) return console.error(err);
+        			events.on('speaking', function(userID, SSRC, speakingBool) {
+            			console.log("%s is " + (speakingBool ? "now speaking" : "done speaking"), userID );
+        			});
+
+        		client.getAudioContext(VCID, function(err, stream) {
+            	if (err) return console.error(err);
+            		fs.createReadStream(song).pipe(stream, {end: false});
+            		stream.on('done', function() {
+                		fs.createReadStream(song).pipe(stream, {end: false});
+            		});
+        		});
+    		});
             				
          }
      }
