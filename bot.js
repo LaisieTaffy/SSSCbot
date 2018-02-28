@@ -146,7 +146,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             	});
             break;
             
-            case 'join:
+            case 'join':
             	client.joinVoiceChannel(VCID, function(err, events) {
         		if (err) return console.error(err);
         			events.on('speaking', function(userID, SSRC, speakingBool) {
