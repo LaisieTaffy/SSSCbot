@@ -170,9 +170,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 });
 
-bot.on('any', function(event) {
-	console.log(event)
-});
+
 
 bot.on('disconnect', function() {
 	console.log("Bot disconnected");
