@@ -173,9 +173,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			bot.disconnect()
     		break;
     		
-    		case 'on':
-    			bot.connect()
-    		break;
             				
          }
      }
@@ -193,13 +190,11 @@ bot.on('any', function(event) {
 	}
 });
 
-/*
 bot.on('disconnect', function() {
 	if (offNotCalled) {
 		bot.connect()
 	}
 });
-*/
 
 /* Commands */
 
