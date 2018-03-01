@@ -172,6 +172,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			offNotCalled = false;
     			bot.disconnect()
     		break;
+    		
+    		case 'on':
+    			bot.connect()
+    		break;
             				
          }
      }
