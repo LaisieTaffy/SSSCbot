@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "prestart": "discord.io build",
     "start": "node bot.js"
   },
   "name": "Didit",
