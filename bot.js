@@ -181,6 +181,10 @@ bot.on('any', function(event) {
 			messageID: event.d.id,
 			reaction: ':MingLee:'
 		});
+		bot.sendMessage({
+			to: channelID,
+			message: 'yo'
+		});
 	}
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
 		bot.addReaction({
