@@ -55,7 +55,7 @@ function playAudio(channel, file) {
             bot.leaveVoiceChannel(channel, function(error, events) {
                 //Check to see if any errors happen while leaving.
             		if (error){
-                    	return console.log("I am not in a voice channel!");
+                    	return console.log("Bot not in a voice channel!");
                 	}
             });
         });
