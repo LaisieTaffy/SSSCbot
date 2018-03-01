@@ -170,7 +170,23 @@ bot.on('message', function (user, userID, channelID, message, evt) {
      }
 });
 
-
+bot.on('any', function(event) {
+	if (event.t == 'MESSAGE_CREATE'){
+		bot.addReaction({
+			channelID: event.d.channel_id,
+			messageID: event.d.id,
+			reaction: ':MingLee:'
+		});
+	}
+	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
+		bot.addReaction({
+			channelID: event.d.channel_id,
+			messageID: event.d.id,
+			reaction: ':MingLee:'
+		});
+	}
+	console.log(event)
+});
 
 bot.on('disconnect', function() {
 	console.log("Bot disconnected");
