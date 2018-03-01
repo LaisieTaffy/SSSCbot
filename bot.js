@@ -175,18 +175,11 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 });
 
 bot.on('any', function(event) {
-	if (event.t == 'MESSAGE_CREATE'){
-		bot.addReaction({
-			channelID: event.d.channel_id,
-			messageID: event.d.id,
-			reaction: {id: '406214261443133460'}
-		});
-	}
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
 		bot.addReaction({
 			channelID: event.d.channel_id,
 			messageID: event.d.id,
-			reaction: ':MingLee:'
+			reaction: {id: '406214261443133460'}
 		});
 	}
 	console.log(event)
