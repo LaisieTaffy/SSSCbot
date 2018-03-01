@@ -21,6 +21,8 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
+/* Files */
+
 var emoteList = [
 				'./emotes/emote1.png',
 				'./emotes/emote2.png',
@@ -47,20 +49,7 @@ var audioList = [
 				'./audio/tata.mp3'
 				];
 
-function playAudio(channel, file) {
-    bot.getAudioContext(channel, function(error, stream) {
-    	if (error) return console.error(error);  
-        fs.createReadStream(file).pipe(stream, {end: false});
-        stream.on('done', function() {
-            bot.leaveVoiceChannel(channel, function(error, events) {
-                //Check to see if any errors happen while leaving.
-            		if (error){
-                    	return console.log("Didit not in a voice channel!");
-                	}
-            });
-        });
-    })	;
-}
+/* Main? */
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -180,3 +169,29 @@ bot.on('message', function (user, userID, channelID, message, evt) {
          }
      }
 });
+
+bot.on('any', function(event) {
+	console.log(rawEvent)
+});
+
+bot.on('disconnect', function() {
+	console.log("Bot disconnected");
+	bot.connect()
+});
+
+/* Commands */
+
+function playAudio(channel, file) {
+    bot.getAudioContext(channel, function(error, stream) {
+    	if (error) return console.error(error);  
+        fs.createReadStream(file).pipe(stream, {end: false});
+        stream.on('done', function() {
+            bot.leaveVoiceChannel(channel, function(error, events) {
+                //Check to see if any errors happen while leaving.
+            		if (error){
+                    	return console.log("Didit not in a voice channel!");
+                	}
+            });
+        });
+    })	;
+}
