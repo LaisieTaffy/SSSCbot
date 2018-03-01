@@ -165,6 +165,10 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     				message: 'Moshi moshi'
     			});
     		break;
+    		
+    		case 'off':
+    			bot.disconnect()
+    		break;
             				
          }
      }
