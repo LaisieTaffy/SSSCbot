@@ -171,13 +171,6 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 });
 
 bot.on('any', function(event) {
-	if (event.t == 'MESSAGE_CREATE'){
-		bot.addReaction({
-			channelID: event.d.channel_id,
-			messageID: event.d.id,
-			reaction: ':MingLee:'
-		});
-	}
 	console.log(event)
 });
 
