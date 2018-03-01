@@ -21,7 +21,7 @@ bot.on('ready', function (evt) {
     logger.info(bot.username + ' - (' + bot.id + ')');
 });
 
-/* Files */
+/* Files and variables */
 
 var emoteList = [
 				'./emotes/emote1.png',
@@ -48,8 +48,10 @@ var emoteList = [
 var audioList = [
 				'./audio/tata.mp3'
 				];
+				
+var offNotCalled = true;
 
-/* Main? */
+/* Command arguments */
 
 bot.on('message', function (user, userID, channelID, message, evt) {
     // Our bot needs to know if it will execute a command
@@ -167,12 +169,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     		break;
     		
     		case 'off':
+    			offNotCalled = false;
     			bot.disconnect()
     		break;
             				
          }
      }
 });
+
+/* Automatic responses */
 
 bot.on('any', function(event) {
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
@@ -182,12 +187,12 @@ bot.on('any', function(event) {
 			reaction: {id: '406214261443133460'}
 		});
 	}
-	console.log(event)
 });
 
 bot.on('disconnect', function() {
-	console.log("Bot disconnected");
-	bot.connect()
+	if (offNotCalled) {
+		bot.connect()
+	}
 });
 
 /* Commands */
