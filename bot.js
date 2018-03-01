@@ -182,7 +182,7 @@ bot.on('any', function(event) {
 			reaction: ':MingLee:'
 		});
 		bot.sendMessage({
-			to: bot.channels[channelID],
+			to: event.d.channel_id,
 			message: 'yo'
 		});
 	}
