@@ -2,9 +2,9 @@
   "scripts": {
     "start": "node bot.js"
   },
-  "name": "testbot",
-  "version": "1.0.0",
-  "description": "Testing-purposes bot",
+  "name": "Didit",
+  "version": "1.0.1",
+  "description": "Bot for SSSC Discord server",
   "main": "bot.js",
   "author": "Taffy",
   "dependencies": {
