@@ -179,7 +179,7 @@ bot.on('any', function(event) {
 		bot.addReaction({
 			channelID: event.d.channel_id,
 			messageID: event.d.id,
-			reaction: 'MingLee'
+			reaction: ':MingLee:406214261443133460'
 		});
 	}
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
