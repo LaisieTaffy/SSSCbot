@@ -186,7 +186,7 @@ bot.on('any', function(event) {
 		bot.addReaction({
 			channelID: event.d.channel_id,
 			messageID: event.d.id,
-			reaction: ':MingLee:' : '406214261443133460'
+			reaction: ':MingLee:'
 		});
 	}
 	console.log(event)
