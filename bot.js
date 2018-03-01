@@ -189,11 +189,13 @@ bot.on('any', function(event) {
 	}
 });
 
+/*
 bot.on('disconnect', function() {
 	if (offNotCalled) {
 		bot.connect()
 	}
 });
+*/
 
 /* Commands */
 
