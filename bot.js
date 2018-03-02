@@ -182,14 +182,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     		break;
     		
     		case 'blackjack':
-    			aDeck = new deck.Deck()
-    			deck.shuffle(aDeck);
-    			playerHand = new deck.Hand();
-    			botHand = new deck.Hand();
+    			aDeck = new Deck()
+    			shuffle(aDeck);
+    			playerHand = new Hand();
+    			botHand = new Hand();
     			var x = 0;
     			while (x < 2) {
-    				deck.addToHand(playerHand, deck.draw(aDeck));
-    				deck.addToHand(botHand, deck.draw(aDeck));
+    				addToHand(playerHand, draw(aDeck));
+    				addToHand(botHand, draw(aDeck));
     				x++;
     			}
     			var botsHand = "My hand: " + botHand.hand[0].rank + " " + botHand.hand[0].suit + " and " + botHand.hand[1].rank + " " + botHand.hand[1].suit;
@@ -203,7 +203,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     		break;
     		
     		case 'hit':
-    			deck.addToHand(playerHand, deck.draw(aDeck));
+    			addToHand(playerHand, draw(aDeck));
     			var botsHand = "My hand: " + botHand.hand[0].rank + " " + botHand.hand[0].suit + " and " + botHand.hand[1].rank + " " + botHand.hand[1].suit;
     			var playersHand = "Your hand: " + playerHand.hand[0].rank + " " + playerHand.hand[0].suit;
     			var i = 1;
@@ -229,8 +229,8 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			while (i < botHand.hand.length) {
     				botHand += " and " + botHand.hand[i].rank + " " + botHand.hand[i].suit;
     			}
-    			var botScore = deck.handCalculate(botHand);
-    			var playerScore = deck.handCalculate(playerHand);
+    			var botScore = handCalculate(botHand);
+    			var playerScore = handCalculate(playerHand);
     			if (botScore > playerScore){
     				bot.sendMessage({
     					to: channelID,
