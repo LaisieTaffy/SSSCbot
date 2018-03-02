@@ -371,6 +371,7 @@ bot.on('any', function(event) {
 			reaction: {id: '406214261443133460'}
 		});
 	}
+	global.gc();
 });
 
 bot.on('disconnect', function() {
@@ -395,5 +396,3 @@ function playAudio(channel, file) {
         });
     })	;
 }
-
-global.gc();
