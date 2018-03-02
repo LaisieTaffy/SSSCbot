@@ -99,3 +99,10 @@ function handCalculate(h){
 	}
 	return calc;
 }
+
+module.exports.Deck = Deck;
+module.exports.shuffle = shuffle;
+module.exports.draw = draw;
+module.exports.Hand = Hand;
+module.exports.addToHand = addToHand;
+module.exports.handCalculate = handCalculate;
