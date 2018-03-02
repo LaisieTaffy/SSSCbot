@@ -4,6 +4,7 @@ var auth = require('./auth.json');
 var fs = require('fs'),
 	path = require('path');
 var spawn = require('child_process').spawn;
+var deck = require('./deck.js');
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -50,6 +51,10 @@ var audioList = [
 				];
 				
 var offNotCalled = true;
+
+var aDeck,
+	playerHand,
+	botHand;
 
 /* Command arguments */
 
@@ -173,6 +178,82 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			bot.disconnect()
     		break;
     		
+    		case 'blackjack':
+    			aDeck = new deck.Deck()
+    			deck.shuffle(aDeck);
+    			playerHand = new deck.Hand();
+    			botHand = new deck.Hand();
+    			var x = 0;
+    			while (x < 2) {
+    				deck.addToHand(playerHand, deck.draw(aDeck));
+    				deck.addToHand(botHand, deck.draw(aDeck));
+    				x++;
+    			}
+    			var botsHand = "My hand: " + botHand.hand[0].rank + " " + botHand.hand[0].suit + " and " + botHand.hand[1].rank + " " + botHand.hand[1].suit;
+    			var playersHand = "Your hand: " + playerHand.hand[0].rank + " " + playerHand.hand[0].suit + " and " + playerHand.hand[1].rank + " " + playerHand.hand[1].suit;
+    			bot.sendMessage({
+    				to: channelID,
+    				message: botsHand + "\n" + 
+    						 playersHand + "\n" +
+							 "Hit / Stand"
+				});
+    		break;
+    		
+    		case 'hit':
+    			deck.addToHand(playerHand, deck.draw(aDeck));
+    			var botsHand = "My hand: " + botHand.hand[0].rank + " " + botHand.hand[0].suit + " and " + botHand.hand[1].rank + " " + botHand.hand[1].suit;
+    			var playersHand = "Your hand: " + playerHand.hand[0].rank + " " + playerHand.hand[0].suit;
+    			var i = 1;
+    			while (i < playerHand.hand.length) {
+    				playersHand += " and " + playerHand.hand[i].rank + " " + playerHand.hand[i].suit;
+    			}
+    			bot.sendMessage({
+    				to: channelID,
+    				message: botsHand + "\n" + 
+    						 playersHand + "\n" +
+							 "Hit / Stand"
+				});
+			break;
+			
+			case 'stand':
+				var botsHand = "My hand: " + botHand.hand[0].rank + " " + botHand.hand[0].suit;
+    			var playersHand = "Your hand: " + playerHand.hand[0].rank + " " + playerHand.hand[0].suit;
+    			var i = 1;
+    			while (i < playerHand.hand.length) {
+    				playersHand += " and " + playerHand.hand[i].rank + " " + playerHand.hand[i].suit;
+    			}
+    			i = 1;
+    			while (i < botHand.hand.length) {
+    				botHand += " and " + botHand.hand[i].rank + " " + botHand.hand[i].suit;
+    			}
+    			var botScore = deck.handCalculate(botHand);
+    			var playerScore = deck.handCalculate(playerHand);
+    			if (botScore > playerScore){
+    				bot.sendMessage({
+    					to: channelID,
+    					message: botsHand + "\n" + 
+    						 	 playersHand + "\n" +
+							 	 "I win"
+					});
+				}
+				if (botScore < playerScore){
+    				bot.sendMessage({
+    					to: channelID,
+    					message: botsHand + "\n" + 
+    						 	 playersHand + "\n" +
+							 	 "You win"
+					});
+				}
+				if (botScore == playerScore){
+    				bot.sendMessage({
+    					to: channelID,
+    					message: botsHand + "\n" + 
+    						 	 playersHand + "\n" +
+							 	 "It's a tie"
+					});
+				}
+			break;
+    			
             				
          }
      }
