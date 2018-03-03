@@ -283,7 +283,7 @@ bot.on('any', function(event) {
 			i++;
 		}
 		bot.sendMessage({
-			to: 408089795898900481
+			to: 408089795898900481,
 			message: postPlain
 		});
 	}
