@@ -272,6 +272,22 @@ bot.on('any', function(event) {
 			reaction: {id: '406214261443133460'}
 		});
 	}
+	
+	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('Dota 2 Update')) {
+		var postHTML = event.d.content;
+		var postArr = postHTML.split('<br>');
+		var postPlain = "";
+		var i = 0;
+		while (i < postArr.length) {
+			postPlain =+ postArr[i] + "\n";
+			i++;
+		}
+		bot.editMessage({
+			channelID: event.d.channel_id,
+			messageID: event.d.id,
+			message: postPlain
+		});
+	}
 	global.gc();
 });
 
