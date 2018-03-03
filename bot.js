@@ -282,9 +282,8 @@ bot.on('any', function(event) {
 			postPlain =+ postArr[i] + "\n";
 			i++;
 		}
-		bot.editMessage({
-			channelID: event.d.channel_id,
-			messageID: event.d.id,
+		bot.sendMessage({
+			to: event.d.channel_id,
 			message: postPlain
 		});
 	}
