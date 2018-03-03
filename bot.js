@@ -279,7 +279,7 @@ bot.on('any', function(event) {
 		var postPlain = "";
 		var i = 0;
 		while (i < postArr.length) {
-			postPlain =+ postArr[i] + "\n";
+			postPlain += postArr[i] + "\n";
 			i++;
 		}
 		bot.sendMessage({
