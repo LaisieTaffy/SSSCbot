@@ -180,7 +180,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			offNotCalled = false;
     			bot.disconnect()
     		break;
-    		
+ /*   		
     		case 'blackjack':
     			aDeck = new deck.Deck()
     			deck.shuffle(aDeck);
@@ -256,7 +256,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 					});
 				}
 			break;
-    			
+*/    			
             				
          }
      }
