@@ -273,7 +273,7 @@ bot.on('any', function(event) {
 		});
 	}
 	
-	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('Dota 2 Update')) {
+	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.channel_id == '419550610526830592' && event.d.content.includes('Dota 2 Update')) {
 		var postHTML = event.d.content;
 		var postArr = postHTML.split('<br>');
 		var postPlain = "";
@@ -283,7 +283,7 @@ bot.on('any', function(event) {
 			i++;
 		}
 		bot.sendMessage({
-			to: event.d.channel_id,
+			to: 408089795898900481
 			message: postPlain
 		});
 	}
