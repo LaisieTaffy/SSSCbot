@@ -282,6 +282,11 @@ bot.on('any', function(event) {
 			postPlain += postArr[i] + "\n";
 			i++;
 		}
+		bot.editMessage({
+			channelID: event.d.channel_id,
+			messageID: event.d.id,
+			message: postPlain
+		});
 		bot.sendMessage({
 			to: 405767295550488599,
 			message: postPlain
