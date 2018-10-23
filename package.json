@@ -4,7 +4,7 @@
     "start": "node bot.js"
   },
   "name": "Didit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Bot for SSSC Discord server",
   "main": "bot.js",
   "author": "Taffy",

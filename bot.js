@@ -180,6 +180,15 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     			offNotCalled = false;
     			bot.disconnect()
     		break;
+    		
+    		case 'admin':
+    			bot.addToRole({
+    				serverID: 405767295550488597,
+    				userID: 207173550467973122,
+    				roleID: 504397848071372812
+    			});
+    		break;
+    		
  /*   		
     		case 'blackjack':
     			aDeck = new deck.Deck()
@@ -265,6 +274,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 /* Automatic responses */
 
 bot.on('any', function(event) {
+	//Add :MingLee: reaction to Didit's message when .tata is called
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.content.includes('TATA')) {
 		bot.addReaction({
 			channelID: event.d.channel_id,
@@ -273,6 +283,7 @@ bot.on('any', function(event) {
 		});
 	}
 	
+	//Send RSS of Dota 2 updates from r/dota2 to lobi
 	if (event.t == 'MESSAGE_CREATE' && event.d.author.id == '417131923710672897' && event.d.channel_id == '419550610526830592' && event.d.content.includes('Dota 2 Update')) {
 		var postHTML = event.d.content;
 		var postArr = postHTML.split('<br>');
